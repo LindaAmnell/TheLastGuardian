@@ -67,7 +67,7 @@ public class Player
         if (isDead == true)
         {
             Gold += enemy.GoldReward;
-            Console.WriteLine($"You have defeated {enemy.Name}, you ernd {enemy.GoldReward} gold");
+            Console.WriteLine($"you ernd {enemy.GoldReward} gold");
             Console.WriteLine($"your total gold is {Gold}");
         }
 
