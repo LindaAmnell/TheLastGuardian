@@ -2,7 +2,6 @@
 
 ![Status](https://img.shields.io/badge/status-Under%20Development-yellow)
 ![Language](https://img.shields.io/badge/language-C%23-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
 
 ---
 
