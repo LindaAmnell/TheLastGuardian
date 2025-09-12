@@ -1,32 +1,41 @@
 ﻿namespace TheLastGuardian.Methods
 {
-    public static class AdventureChoice
+    public class AdventureChoice
     {
-        public static bool Choice(Enemy enemy, Player player, bool isGameOver)
+        public bool Choice(Enemy enemy, Player player, bool isGameOver)
         {
             Console.Clear();
-            ReusableMethods.HeadLineText();
-            Console.WriteLine("What do you whant to do: ");
-            Console.WriteLine("1: Adventure");
-            Console.WriteLine("2: Rest");
-            Console.WriteLine("3: Status");
-            Console.WriteLine("4: Quit\n");
-            string choice = Console.ReadLine().ToLower();
+            ReusableMethods.HeadLineText(player);
+            ReusableMethods.MenyLine(player);
 
+            Console.WriteLine(" What will you do next, Guardian?\n ");
+            Console.WriteLine(" [1] Adventure");
+            Console.WriteLine(" [2] Rest");
+            Console.WriteLine(" [3] Status");
+            Console.WriteLine(" [4] Store");
+            Console.WriteLine(" [5] Quit \n");
+
+            ReusableMethods.MenyLine(player);
+
+            Console.Write("Choose your action: ");
+            string choice = Console.ReadLine().ToLower();
 
             switch (choice)
             {
                 case "1":
                     Console.Clear();
-                    Methods.PlayerVsEnemy(player, enemy);
+                    BattleMethods.PlayerVsEnemy(player, enemy);
                     break;
                 case "2":
-                    player.Rest();
+                    player.Rest(player);
                     break;
                 case "3":
                     player.Status();
                     break;
                 case "4":
+                    Store.OpenStore(player);
+                    break;
+                case "5":
                     Console.WriteLine("You have choos to quite");
                     isGameOver = true;
                     Console.WriteLine("Thanks for playing!");
@@ -36,8 +45,6 @@
                     break;
 
             }
-            //Console.WriteLine("Press any key to continue");
-            //Console.ReadKey();
             return isGameOver;
 
         }

@@ -1,5 +1,4 @@
-﻿
-using TheLastGuardian.Methods;
+﻿using TheLastGuardian.Methods;
 namespace TheLastGuardian
 {
     internal class Program
@@ -7,18 +6,20 @@ namespace TheLastGuardian
         static void Main(string[] args)
         {
             Console.OutputEncoding = System.Text.Encoding.UTF8;
+            var adventureChoice = new AdventureChoice();
+            Player player = null;
 
-            ReusableMethods.HeadLineText();
+            ReusableMethods.HeadLineText(player);
 
             Console.WriteLine("The darkness spreads across the battlefield...");
             Console.WriteLine("Rise, Guardian! Only you can stop it.");
             Console.WriteLine("Prepare your light and choose your hero:\n");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("⚔️ Your enemies approach. Let the battle begin!");
+            Console.WriteLine("Your enemies approach. Let the battle begin!");
             Console.ResetColor();
 
-            Player startPlayer = Methods.Methods.CreatePlayer();
+            Player startPlayer = PlayerFactory.CreatePlayer();
 
             Enemy enemy = null;
             bool isGameOver = false;
@@ -26,7 +27,7 @@ namespace TheLastGuardian
             while (!isGameOver)
             {
 
-                isGameOver = AdventureChoice.Choice(enemy, startPlayer, isGameOver);
+                isGameOver = adventureChoice.Choice(enemy, startPlayer, isGameOver);
 
                 if (startPlayer.CurrentHp <= 0)
                 {

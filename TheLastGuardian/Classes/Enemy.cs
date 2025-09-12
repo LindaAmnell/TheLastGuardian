@@ -1,22 +1,18 @@
 ﻿
 namespace TheLastGuardian;
-
-
 public class Enemy
 {
     public string Name;
     public int Hp;
     public int Damage;
-    public int GoldReward;
+    public int GlimmerReward;
 
-
-    public Enemy(string name, int hp, int damage, int gold)
+    public Enemy(string name, int hp, int damage, int glimmer)
     {
-
         Name = name;
         Hp = hp;
         Damage = damage;
-        GoldReward = gold;
+        GlimmerReward = glimmer;
     }
 
     public void Attack(Player p)
@@ -30,7 +26,5 @@ public class Enemy
         Console.WriteLine($"You lose {Damage} hp, current {p.CurrentHp}/{p.MaxHp} hp\n");
 
     }
-
-
 }
 
