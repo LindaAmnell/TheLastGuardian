@@ -28,7 +28,7 @@ public class Player
 
     public void Status()
     {
-        Console.WriteLine($"{Name} your hp is: {CurrentHp}/{MaxHp} and you have {Glimmer} glimmer and your damage is: {Damage}.");
+        Console.WriteLine($"{Name} your hp: {CurrentHp}/{MaxHp} and you have {Glimmer} glimmer and your damage is: {Damage}.");
         Console.WriteLine("Press any key to continue your journey...");
         Console.ReadKey();
     }
@@ -37,14 +37,21 @@ public class Player
     {
         int rest = 10;
         int restPrice = 5;
-        ReusableMethods.IncreaseHp(player, restPrice, rest, "Rest");
+        bool noHealing = false;
+        ReusableMethods.IncreaseHp(player, restPrice, rest, "Rest", ref noHealing);
     }
 
     public void Heal(Enemy enemy, Player player)
     {
         int heal = 15;
         int healPrice = 10;
-        ReusableMethods.IncreaseHp(player, healPrice, heal, "Heal");
+        bool noHealing = false;
+        ReusableMethods.IncreaseHp(player, healPrice, heal, "Heal", ref noHealing);
+
+        if (noHealing)
+        {
+            return;
+        }
         enemy.Attack(player);
     }
 
@@ -68,7 +75,7 @@ public class Player
         e.Hp -= Damage;
         if (e.Hp <= 0)
         {
-            Console.WriteLine($"{e.Name} is defeated! 💀\n");
+            Console.WriteLine($"\n{e.Name} is defeated! 💀\n");
         }
         else
         {

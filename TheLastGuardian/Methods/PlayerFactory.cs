@@ -34,30 +34,15 @@
                 switch (choseClass)
                 {
                     case "1":
-                        player = new Player(name, "🏹 Hunter", 120, 25, 20);
-                        Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine($"\nWelcome, Guardian {player.Name}!");
-                        Console.WriteLine($"You walk the path of the {player.PlayerClass}.");
-                        Console.WriteLine("Silent, swift, and deadly, the darkness will never see you coming.\n");
-                        Console.ResetColor();
+                        player = new Player(name, "🏹 Hunter", 150, 25, 20);
                         break;
 
                     case "2":
-                        player = new Player(name, "🛡️ Titan", 130, 28, 20);
-                        Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.WriteLine($"\nWelcome, Guardian {player.Name}!");
-                        Console.WriteLine($"You walk the path of the {player.PlayerClass}.");
-                        Console.WriteLine("A bulwark against the Darkness , your Light is unbreakable.\n");
-                        Console.ResetColor();
+                        player = new Player(name, "🛡️ Titan", 150, 28, 20);
                         break;
 
                     case "3":
-                        player = new Player(name, "🔮 Warlock", 125, 26, 20);
-                        Console.ForegroundColor = ConsoleColor.Magenta;
-                        Console.WriteLine($"\nWelcome, Guardian {player.Name}!");
-                        Console.WriteLine($"You walk the path of the {player.PlayerClass}.");
-                        Console.WriteLine("Mystic, scholar, and wielder of cosmic fire , the Light bends to your will.\n");
-                        Console.ResetColor();
+                        player = new Player(name, "🔮 Warlock", 150, 26, 20);
                         break;
 
                     default:
@@ -67,10 +52,10 @@
                         break;
                 }
             }
-
-            Console.WriteLine("Press any key to continue your journey...");
-            Console.ReadKey();
-            Console.Clear();
+            StoryManager.IntroStory(player);
+            //Console.WriteLine("Press any key to continue your journey...");
+            //Console.ReadKey();
+            //Console.Clear();
             return player;
         }
     }

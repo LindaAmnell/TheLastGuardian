@@ -1,5 +1,4 @@
-﻿
-namespace TheLastGuardian;
+﻿namespace TheLastGuardian;
 public class Enemy
 {
     public string Name;
@@ -23,8 +22,17 @@ public class Enemy
         Console.ResetColor();
 
         p.CurrentHp -= Damage;
+        if (p.CurrentHp <= 0)
+        {
+            Console.WriteLine($"{p.Name} has been defeated...");
 
-        Console.WriteLine($"You lose {Damage} hp, current {p.CurrentHp}/{p.MaxHp} hp\n");
+        }
+        else
+        {
+            Console.WriteLine($"You lose {Damage} hp, current {p.CurrentHp}/{p.MaxHp} hp\n");
+
+        }
+
 
     }
 }

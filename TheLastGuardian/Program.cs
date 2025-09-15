@@ -31,7 +31,13 @@ namespace TheLastGuardian
 
                 if (startPlayer.CurrentHp <= 0)
                 {
-                    Console.WriteLine("You have died. Game over!");
+                    Console.Clear();
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("⚔️ You fought bravely, Guardian.");
+                    Console.WriteLine("But even heroes must fall...");
+                    Console.ResetColor();
+                    Console.WriteLine("\nPress any key to end your journey...");
+                    Console.ReadKey();
                     isGameOver = true;
                     return;
                 }

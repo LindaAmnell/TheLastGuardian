@@ -47,7 +47,7 @@
                         enemy.Attack(player);
                         if (player.CurrentHp <= 0)
                         {
-                            Console.WriteLine($"{player.Name} has been defeated...");
+                            //Console.WriteLine($"{player.Name} has been defeated...");
                             Console.WriteLine("Press any key to end your journey...");
                             Console.ReadKey();
                             isDead = true;

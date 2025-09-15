@@ -5,7 +5,7 @@ namespace TheLastGuardian.Methods
     public static class Store
     {
 
-        public static void OpenStore(Player player)
+        public static void OpenStore(Player p)
         {
 
             bool isShopping = true;
@@ -23,18 +23,19 @@ namespace TheLastGuardian.Methods
             while (isShopping)
             {
                 Console.Clear();
-                ReusableMethods.HeadLineText(player);
+                ReusableMethods.HeadLineText(p);
                 Console.WriteLine("The Light guides you to the Tower...");
-                Console.WriteLine("Here, Guardians prepare for the battles ahead.");
+                Console.WriteLine("Here, Guardians prepare for the battles ahead.\n");
+                Console.WriteLine($"You´r HP: {p.CurrentHp}/{p.MaxHp} | Damage: {p.Damage}");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine($"💰 You have {player.Glimmer} Glimmer.\n");
+                Console.WriteLine($"💰 You have {p.Glimmer} Glimmer.\n");
                 Console.ResetColor();
 
-                if (player.PlayerClass == "🏹 Hunter")
+                if (p.PlayerClass == "🏹 Hunter")
                 {
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                 }
-                else if (player.PlayerClass == "🛡️ Titan")
+                else if (p.PlayerClass == "🛡️ Titan")
                 {
                     Console.ForegroundColor = ConsoleColor.Blue;
                 }
@@ -51,7 +52,7 @@ namespace TheLastGuardian.Methods
                 }
                 Console.WriteLine($"[{items.Count + 1}] Quit");
                 Console.WriteLine("Choose your upgrades wisely, for the darkness grows stronger with every step.\n");
-                ReusableMethods.MenyLine(player);
+                ReusableMethods.MenyLine(p);
                 Console.Write("What do you choose: ");
                 string input = Console.ReadLine();
 
@@ -64,7 +65,7 @@ namespace TheLastGuardian.Methods
                 if (pick >= 1 && pick <= items.Count)
                 {
                     Item item = items[pick - 1];
-                    item.BuyItem(player, items);
+                    item.BuyItem(p, items);
                     Console.WriteLine("Press any key to choose more or leav...");
                     Console.ReadKey();
                 }
