@@ -14,9 +14,10 @@ namespace TheLastGuardian.Methods
             {
                 new Item { Name="Bright Health Synth", Price=15, Value=20, Effect="Health" },
                 new Item { Name="Major Health Synth", Price=40, Value=50, Effect="Health" },
-                new Item { Name="Gjallarhorn", Price=50, Value=10, Effect="Damage" },
-                new Item { Name="Ace of Spades", Price=45, Value=8, Effect="Damage" },
-                new Item { Name="Suros Regime", Price=35, Value=6, Effect="Damage" }
+                new Item { Name="Gjallarhorn", Price=50, Value=15, Effect="Damage" },
+                new Item { Name="Ace of Spades", Price=45, Value=12, Effect="Damage" },
+                new Item { Name="Suros Regime", Price=35, Value=10, Effect="Damage" },
+                new Item { Name="Heart of the Guardian", Price=30, Value=20, Effect="MaxHealth" }
             };
 
             while (isShopping)
@@ -28,14 +29,27 @@ namespace TheLastGuardian.Methods
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"💰 You have {player.Glimmer} Glimmer.\n");
                 Console.ResetColor();
-                ReusableMethods.MenyLine(player);
 
+                if (player.PlayerClass == "🏹 Hunter")
+                {
+                    Console.ForegroundColor = ConsoleColor.DarkGreen;
+                }
+                else if (player.PlayerClass == "🛡️ Titan")
+                {
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                }
+                else
+                {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
+                }
                 Console.WriteLine("═════════ The Tower Market ═════════\n");
+                Console.ResetColor();
+
                 for (int i = 0; i < items.Count; i++)
                 {
-                    Console.WriteLine($"[{i + 1}] {items[i].Name} - price: {items[i].Price} - raise: {items[i].Effect} by {items[i].Value}");
+                    Console.WriteLine($"[{i + 1}] {items[i].Name} | raise: {items[i].Effect} by {items[i].Value}  | price: {items[i].Price}");
                 }
-                Console.WriteLine("[6] Quit");
+                Console.WriteLine($"[{items.Count + 1}] Quit");
                 Console.WriteLine("Choose your upgrades wisely, for the darkness grows stronger with every step.\n");
                 ReusableMethods.MenyLine(player);
                 Console.Write("What do you choose: ");
@@ -51,10 +65,10 @@ namespace TheLastGuardian.Methods
                 {
                     Item item = items[pick - 1];
                     item.BuyItem(player, items);
-                    Console.WriteLine("Press any key to continue your journey...");
+                    Console.WriteLine("Press any key to choose more or leav...");
                     Console.ReadKey();
                 }
-                else if (pick == 6)
+                else if (pick == items.Count + 1)
                 {
                     isShopping = false;
                 }

@@ -9,6 +9,7 @@ public class Player
     public int MaxHp;
     public int Damage;
     public int Glimmer;
+    public string Weapon;
     //public int Mana;
     //public int MaxMana;
     //public int ManaDamage;
@@ -22,11 +23,12 @@ public class Player
         MaxHp = curentHp;
         Damage = damage;
         Glimmer = glimer;
+        Weapon = "Scout Rifle";
     }
 
     public void Status()
     {
-        Console.WriteLine($"{Name} your hp is: {CurrentHp}/{MaxHp} and you have colected {Glimmer} gold.");
+        Console.WriteLine($"{Name} your hp is: {CurrentHp}/{MaxHp} and you have {Glimmer} glimmer and your damage is: {Damage}.");
         Console.WriteLine("Press any key to continue your journey...");
         Console.ReadKey();
     }
@@ -37,6 +39,7 @@ public class Player
         int restPrice = 5;
         ReusableMethods.IncreaseHp(player, restPrice, rest, "Rest");
     }
+
     public void Heal(Enemy enemy, Player player)
     {
         int heal = 15;
@@ -50,8 +53,8 @@ public class Player
         if (isDead == true)
         {
             Glimmer += enemy.GlimmerReward;
-            Console.WriteLine($"you ernd {enemy.GlimmerReward} gold");
-            Console.WriteLine($"your total gold is {Glimmer}");
+            Console.WriteLine($"You have ernd {enemy.GlimmerReward} glimmer, your total is {Glimmer} glimmer.\n");
+
         }
         return isDead;
     }
@@ -59,13 +62,13 @@ public class Player
     public void Attack(Enemy e)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"⚔️ {Name} strikes {e.Name}!");
+        Console.WriteLine($"⚔️ {Name} attacks {e.Name} with their weapon {Weapon}!");
         Console.ResetColor();
 
         e.Hp -= Damage;
         if (e.Hp <= 0)
         {
-            Console.WriteLine($"{e.Name} is defeated! 💀");
+            Console.WriteLine($"{e.Name} is defeated! 💀\n");
         }
         else
         {

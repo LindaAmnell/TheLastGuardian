@@ -34,7 +34,7 @@
                 switch (choseClass)
                 {
                     case "1":
-                        player = new Player(name, "🏹 Hunter", 120, 15, 30);
+                        player = new Player(name, "🏹 Hunter", 120, 25, 20);
                         Console.ForegroundColor = ConsoleColor.Green;
                         Console.WriteLine($"\nWelcome, Guardian {player.Name}!");
                         Console.WriteLine($"You walk the path of the {player.PlayerClass}.");
@@ -43,7 +43,7 @@
                         break;
 
                     case "2":
-                        player = new Player(name, "🛡️ Titan", 130, 20, 30);
+                        player = new Player(name, "🛡️ Titan", 130, 28, 20);
                         Console.ForegroundColor = ConsoleColor.Blue;
                         Console.WriteLine($"\nWelcome, Guardian {player.Name}!");
                         Console.WriteLine($"You walk the path of the {player.PlayerClass}.");
@@ -52,7 +52,7 @@
                         break;
 
                     case "3":
-                        player = new Player(name, "🔮 Warlock", 125, 17, 30);
+                        player = new Player(name, "🔮 Warlock", 125, 26, 20);
                         Console.ForegroundColor = ConsoleColor.Magenta;
                         Console.WriteLine($"\nWelcome, Guardian {player.Name}!");
                         Console.WriteLine($"You walk the path of the {player.PlayerClass}.");

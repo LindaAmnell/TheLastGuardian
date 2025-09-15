@@ -8,6 +8,7 @@
             enemy = EnemyFactory.RandomEnemy();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine($"⚔️ {enemy.Name} has entered the battlefield!");
+            Console.WriteLine($"{enemy.Hp}");
             Console.ResetColor();
             Console.WriteLine();
 
@@ -20,7 +21,7 @@
             while (!isDead)
             {
                 ReusableMethods.MenyLine(player);
-                Console.WriteLine("Choose your next action wisely:");
+                Console.WriteLine("Choose your next action wisely:\n");
                 Console.WriteLine("1: Strike the enemy ⚔️");
                 Console.WriteLine("2: Restore your light ✨");
                 Console.WriteLine("3: Retreat 🏃\n");
@@ -28,12 +29,13 @@
 
                 Console.Write("Choose you action: ");
                 string choice = Console.ReadLine().ToLower();
+                Console.Clear();
                 switch (choice)
                 {
                     case "1":
-                        Console.Clear();
                         ReusableMethods.HeadLineText(player);
                         player.Attack(enemy);
+
                         if (enemy.Hp <= 0)
                         {
                             isDead = true;
@@ -46,26 +48,27 @@
                         if (player.CurrentHp <= 0)
                         {
                             Console.WriteLine($"{player.Name} has been defeated...");
-                            Console.WriteLine("Press any key to continue your journey...");
+                            Console.WriteLine("Press any key to end your journey...");
                             Console.ReadKey();
                             isDead = true;
                             return;
                         }
                         break;
                     case "2":
-                        Console.Clear();
+
                         ReusableMethods.HeadLineText(player); ;
                         player.Heal(enemy, player);
 
 
                         break;
                     case "3":
-                        Console.Clear();
+
                         ReusableMethods.HeadLineText(player);
                         isDead = true;
                         Console.WriteLine($"You have choosen to run");
                         break;
                     default:
+
                         Console.WriteLine("Invalid choice, please choos 1-3");
                         break;
 

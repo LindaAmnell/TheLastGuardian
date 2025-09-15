@@ -6,6 +6,7 @@ public class Enemy
     public int Hp;
     public int Damage;
     public int GlimmerReward;
+    public string Description;
 
     public Enemy(string name, int hp, int damage, int glimmer)
     {

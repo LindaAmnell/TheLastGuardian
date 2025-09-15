@@ -49,7 +49,6 @@
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("═══════════════════════════════════");
                 Console.ResetColor();
-
             }
 
         }
@@ -63,6 +62,7 @@
                 Console.ReadKey();
                 return;
             }
+
             if (player.Glimmer < price)
             {
                 Console.WriteLine($"Too little Glimmer! You only have {player.Glimmer}.\n");
@@ -70,19 +70,19 @@
                 Console.ReadKey();
                 return;
             }
+
             player.CurrentHp += increaseHp;
 
             if (player.CurrentHp > player.MaxHp)
             {
                 player.CurrentHp = player.MaxHp;
-
             }
 
             if (actionName == "Rest")
             {
-
                 Console.WriteLine($"You rested and recovered {increaseHp} HP. Current HP: {player.CurrentHp}/{player.MaxHp}");
                 Console.WriteLine($"- {price} glimmer, {player.Glimmer} left ");
+                player.Glimmer -= price;
                 Console.WriteLine("Press any key to continue your journey...");
                 Console.ReadKey();
                 return;
@@ -91,12 +91,8 @@
             {
                 Console.WriteLine($"You healed yourself and restored {increaseHp} HP. Current HP: {player.CurrentHp}/{player.MaxHp}");
                 Console.WriteLine($"- {price} glimmer, {player.Glimmer} left ");
+                player.Glimmer -= price;
             }
-
-            //Console.WriteLine("Press any key to continue your journey...");
-            //Console.ReadKey();
-
-
         }
     }
 }
