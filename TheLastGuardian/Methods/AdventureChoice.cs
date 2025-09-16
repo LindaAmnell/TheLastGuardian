@@ -18,7 +18,7 @@
             ReusableMethods.MenyLine(player);
 
             Console.Write("Choose your action: ");
-            string choice = Console.ReadLine().ToLower();
+            string choice = Console.ReadLine();
 
             switch (choice)
             {

@@ -53,9 +53,6 @@
                 }
             }
             StoryManager.IntroStory(player);
-            //Console.WriteLine("Press any key to continue your journey...");
-            //Console.ReadKey();
-            //Console.Clear();
             return player;
         }
     }
