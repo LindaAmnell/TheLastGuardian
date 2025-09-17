@@ -5,6 +5,8 @@
 
         private static int count = 0;
         private static int fightCount = 0;
+        public static int battleCount = 0;
+        public static int bossCount = 5;
 
         private static Random randomEnemy = new Random();
 
@@ -29,16 +31,15 @@
 
         public static Enemy RandomEnemy()
         {
-            fightCount++;
-            count++;
+            battleCount++;
 
             if (fightCount == 3)
             {
                 foreach (Enemy e in enemy)
                 {
-                    e.Hp += 5;
-                    e.Damage += 2;
-                    e.GlimmerReward += 2;
+                    e.Hp += 10;
+                    e.Damage += 5;
+                    e.GlimmerReward += 5;
                 }
                 fightCount = 0;
             }
@@ -46,21 +47,26 @@
             if (count == 5)
             {
                 Enemy randomBoss = boss[randomEnemy.Next(boss.Length)];
-                Console.WriteLine("Be ready for Boss fight!");
-
+                Enemy bossToFight = new Enemy(randomBoss.Name, randomBoss.Hp, randomBoss.Damage, randomBoss.GlimmerReward);
+                count = 0;
+                battleCount++;
+                bossCount = 5;
                 foreach (Enemy e in boss)
                 {
-                    e.Hp += 10;
+                    e.Hp += 15;
                     e.Damage += 5;
-                    e.GlimmerReward += 2;
+                    e.GlimmerReward += 10;
+
                 }
 
-                count = 0;
 
-                return new Enemy(randomBoss.Name, randomBoss.Hp, randomBoss.Damage, randomBoss.GlimmerReward);
+                return bossToFight;
             }
+            fightCount++;
 
-            Console.WriteLine("count is:" + count);
+            bossCount--;
+            count++;
+
             Enemy protoEnemy = enemy[randomEnemy.Next(enemy.Length)];
             return new Enemy(protoEnemy.Name, protoEnemy.Hp, protoEnemy.Damage, protoEnemy.GlimmerReward);
 

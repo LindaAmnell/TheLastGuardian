@@ -7,8 +7,7 @@
             ReusableMethods.HeadLineText(player);
             enemy = EnemyFactory.RandomEnemy();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"⚔️ {enemy.Name} has entered the battlefield!");
-            Console.WriteLine($"{enemy.Hp}");
+            Console.WriteLine($"⚔️ {enemy.Name} has entered the battlefield! HP: {enemy.Hp}, Damage: {enemy.Damage}");
             Console.ResetColor();
             Console.WriteLine();
 
@@ -20,6 +19,7 @@
             bool isDead = false;
             while (!isDead)
             {
+
                 ReusableMethods.MenyLine(player);
                 Console.WriteLine("Choose your next action wisely:\n");
                 Console.WriteLine("1: Strike the enemy ⚔️");
@@ -35,7 +35,6 @@
                     case "1":
                         ReusableMethods.HeadLineText(player);
                         player.Attack(enemy);
-
                         if (enemy.Hp <= 0)
                         {
                             isDead = true;
@@ -47,7 +46,6 @@
                         enemy.Attack(player);
                         if (player.CurrentHp <= 0)
                         {
-                            //Console.WriteLine($"{player.Name} has been defeated...");
                             Console.WriteLine("Press any key to end your journey...");
                             Console.ReadKey();
                             isDead = true;
@@ -55,11 +53,8 @@
                         }
                         break;
                     case "2":
-
                         ReusableMethods.HeadLineText(player); ;
                         player.Heal(enemy, player);
-
-
                         break;
                     case "3":
 

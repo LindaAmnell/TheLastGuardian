@@ -58,7 +58,7 @@ namespace TheLastGuardian.Methods
 
                 if (!int.TryParse(input, out int pick))
                 {
-                    Console.WriteLine("Invalid choies, Pleas enter a number (1-6).");
+                    Console.WriteLine($"Invalid choies, Pleas enter a number (1-{items.Count + 1}).");
                     Console.ReadKey();
                     continue;
                 }

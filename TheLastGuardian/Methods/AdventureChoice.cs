@@ -6,6 +6,13 @@
         {
             Console.Clear();
             ReusableMethods.HeadLineText(player);
+            Console.WriteLine($"[Faught enymys: {EnemyFactory.batelCount}]\n");
+            if (EnemyFactory.bossCount == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Next fight is a Boss!");
+                Console.ResetColor();
+            }
             ReusableMethods.MenyLine(player);
 
             Console.WriteLine(" What will you do next, Guardian?\n ");

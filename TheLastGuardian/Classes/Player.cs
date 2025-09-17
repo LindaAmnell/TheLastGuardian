@@ -10,10 +10,6 @@ public class Player
     public int Damage;
     public int Glimmer;
     public string Weapon;
-    //public int Mana;
-    //public int MaxMana;
-    //public int ManaDamage;
-    //public string ManaAtackName;
 
     public Player(string name, string playerClass, int curentHp, int damage, int glimer)
     {
