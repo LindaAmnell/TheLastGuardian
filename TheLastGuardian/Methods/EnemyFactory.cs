@@ -33,6 +33,23 @@
         {
             battleCount++;
 
+            if (battleCount % 10 == 0)
+            {
+                foreach (Enemy e in enemy)
+                {
+                    e.Hp += 20;
+                    e.Damage += 10;
+                    e.GlimmerReward += 10;
+                }
+
+                foreach (Enemy e in boss)
+                {
+                    e.Hp += 10;
+                    e.Damage += 5;
+                    e.GlimmerReward += 20;
+                }
+            }
+
             if (fightCount == 3)
             {
                 foreach (Enemy e in enemy)
@@ -48,9 +65,10 @@
             {
                 Enemy randomBoss = boss[randomEnemy.Next(boss.Length)];
                 Enemy bossToFight = new Enemy(randomBoss.Name, randomBoss.Hp, randomBoss.Damage, randomBoss.GlimmerReward);
+
                 count = 0;
-                battleCount++;
                 bossCount = 5;
+
                 foreach (Enemy e in boss)
                 {
                     e.Hp += 15;
@@ -58,18 +76,15 @@
                     e.GlimmerReward += 10;
 
                 }
-
-
                 return bossToFight;
             }
-            fightCount++;
 
+            fightCount++;
             bossCount--;
             count++;
 
             Enemy protoEnemy = enemy[randomEnemy.Next(enemy.Length)];
             return new Enemy(protoEnemy.Name, protoEnemy.Hp, protoEnemy.Damage, protoEnemy.GlimmerReward);
-
         }
     }
 }

@@ -26,7 +26,7 @@ namespace TheLastGuardian.Methods
                 ReusableMethods.HeadLineText(p);
                 Console.WriteLine("The Light guides you to the Tower...");
                 Console.WriteLine("Here, Guardians prepare for the battles ahead.\n");
-                Console.WriteLine($"You´r HP: {p.CurrentHp}/{p.MaxHp} | Damage: {p.Damage}");
+                Console.WriteLine($"Your HP: {p.CurrentHp}/{p.MaxHp} | Damage: {p.Damage}");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine($"💰 You have {p.Glimmer} Glimmer.\n");
                 Console.ResetColor();
@@ -48,7 +48,7 @@ namespace TheLastGuardian.Methods
 
                 for (int i = 0; i < items.Count; i++)
                 {
-                    Console.WriteLine($"[{i + 1}] {items[i].Name} | raise: {items[i].Effect} by {items[i].Value}  | price: {items[i].Price}");
+                    Console.WriteLine($"[{i + 1}] {items[i].Name} | raise: {items[i].Effect} increased by {items[i].Value}  | price: {items[i].Price}");
                 }
                 Console.WriteLine($"[{items.Count + 1}] Quit");
                 Console.WriteLine("Choose your upgrades wisely, for the darkness grows stronger with every step.\n");
@@ -58,7 +58,7 @@ namespace TheLastGuardian.Methods
 
                 if (!int.TryParse(input, out int pick))
                 {
-                    Console.WriteLine($"Invalid choies, Pleas enter a number (1-{items.Count + 1}).");
+                    Console.WriteLine($"Invalid choice, please enter a number (1-{items.Count + 1}).");
                     Console.ReadKey();
                     continue;
                 }
@@ -66,7 +66,7 @@ namespace TheLastGuardian.Methods
                 {
                     Item item = items[pick - 1];
                     item.BuyItem(p, items);
-                    Console.WriteLine("Press any key to choose more or leav...");
+                    Console.WriteLine("Press any key to choose more or leave...");
                     Console.ReadKey();
                 }
                 else if (pick == items.Count + 1)

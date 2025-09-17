@@ -11,12 +11,12 @@ public class Player
     public int Glimmer;
     public string Weapon;
 
-    public Player(string name, string playerClass, int curentHp, int damage, int glimer)
+    public Player(string name, string playerClass, int currentHp, int damage, int glimer)
     {
         Name = name;
         PlayerClass = playerClass;
-        CurrentHp = curentHp;
-        MaxHp = curentHp;
+        CurrentHp = currentHp;
+        MaxHp = currentHp;
         Damage = damage;
         Glimmer = glimer;
         Weapon = "Scout Rifle";
@@ -56,7 +56,7 @@ public class Player
         if (isDead == true)
         {
             Glimmer += enemy.GlimmerReward;
-            Console.WriteLine($"You have ernd {enemy.GlimmerReward} glimmer, your total is {Glimmer} glimmer.\n");
+            Console.WriteLine($"You have earned {enemy.GlimmerReward} glimmer, your total is {Glimmer} glimmer.\n");
 
         }
         return isDead;

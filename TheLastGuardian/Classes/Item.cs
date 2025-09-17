@@ -18,7 +18,7 @@
             {
                 if (player.CurrentHp >= player.MaxHp)
                 {
-                    Console.WriteLine("You don't have to buy this, your health is good!");
+                    Console.WriteLine("You don't need to buy this, your health is full!");
                     return;
                 }
                 player.CurrentHp += Value;
@@ -28,6 +28,7 @@
             else if (Effect == "MaxHealth")
             {
                 player.MaxHp += Value;
+                Console.WriteLine($"💚 Max HP increased by {Value}! Current Max HP: {player.MaxHp}");
             }
             else
             {
@@ -35,8 +36,8 @@
                 player.Weapon = Name;
                 Console.WriteLine($"⚔️ Damage increased by {Value}! Current Damage: {player.Damage}");
             }
-            Console.WriteLine($"💎 You bought: {Name}!");
             player.Glimmer -= Price;
+            Console.WriteLine($"💎 You bought: {Name}!");
         }
     }
 

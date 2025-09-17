@@ -28,17 +28,17 @@
                 Console.WriteLine("═════════════════════════════════════\n");
                 Console.ResetColor();
                 Console.Write("Choose your class (1-3): ");
-                string choseClass = Console.ReadLine();
+                string chosenClass = Console.ReadLine();
                 Console.Clear();
 
-                switch (choseClass)
+                switch (chosenClass)
                 {
                     case "1":
-                        player = new Player(name, "🏹 Hunter", 150, 25, 20);
+                        player = new Player(name, "🏹 Hunter", 160, 25, 20);
                         break;
 
                     case "2":
-                        player = new Player(name, "🛡️ Titan", 150, 28, 20);
+                        player = new Player(name, "🛡️ Titan", 155, 28, 20);
                         break;
 
                     case "3":

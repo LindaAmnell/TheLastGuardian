@@ -27,8 +27,8 @@
                 Console.WriteLine("3: Retreat 🏃\n");
                 ReusableMethods.MenyLine(player);
 
-                Console.Write("Choose you action: ");
-                string choice = Console.ReadLine().ToLower();
+                Console.Write("Choose your action: ");
+                string choice = Console.ReadLine();
                 Console.Clear();
                 switch (choice)
                 {
@@ -53,18 +53,18 @@
                         }
                         break;
                     case "2":
-                        ReusableMethods.HeadLineText(player); ;
+                        ReusableMethods.HeadLineText(player);
                         player.Heal(enemy, player);
                         break;
                     case "3":
 
                         ReusableMethods.HeadLineText(player);
                         isDead = true;
-                        Console.WriteLine($"You have choosen to run");
+                        Console.WriteLine($"You have chosen to run");
                         break;
                     default:
 
-                        Console.WriteLine("Invalid choice, please choos 1-3");
+                        Console.WriteLine("Invalid choice, please choose 1-3");
                         break;
 
                 }

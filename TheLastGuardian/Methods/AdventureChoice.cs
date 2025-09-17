@@ -6,11 +6,18 @@
         {
             Console.Clear();
             ReusableMethods.HeadLineText(player);
-            Console.WriteLine($"[Faught enymys: {EnemyFactory.batelCount}]\n");
+            Console.WriteLine($"[Fought enemies: {EnemyFactory.battleCount}]\n");
             if (EnemyFactory.bossCount == 0)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Next fight is a Boss!");
+                Console.ResetColor();
+            }
+
+            if (EnemyFactory.battleCount != 0 && EnemyFactory.battleCount % 10 == 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("⚠️ Enemies grow stronger as you progress!");
                 Console.ResetColor();
             }
             ReusableMethods.MenyLine(player);
@@ -43,12 +50,12 @@
                     Store.OpenStore(player);
                     break;
                 case "5":
-                    Console.WriteLine("You have choos to quite");
+                    Console.WriteLine("You have chosen to quit");
                     isGameOver = true;
                     Console.WriteLine("Thanks for playing!");
                     break;
                 default:
-                    Console.WriteLine("Invalid choice, please choos 1-4");
+                    Console.WriteLine("Invalid choice, please choos 1-5");
                     break;
 
             }

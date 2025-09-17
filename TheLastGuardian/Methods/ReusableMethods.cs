@@ -14,21 +14,20 @@
             if (player.PlayerClass == "🏹 Hunter")
             {
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("🛡️ Destiny: The Last Guardian 🛡️\n");
-                Console.ResetColor();
+
             }
             else if (player.PlayerClass == "🛡️ Titan")
             {
                 Console.ForegroundColor = ConsoleColor.Blue;
-                Console.WriteLine("🛡️ Destiny: The Last Guardian 🛡️\n");
-                Console.ResetColor();
+
             }
             else
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("🛡️ Destiny: The Last Guardian 🛡️\n");
-                Console.ResetColor();
+
             }
+            Console.WriteLine("🛡️ Destiny: The Last Guardian 🛡️\n");
+            Console.ResetColor();
         }
         public static void MenyLine(Player player)
         {
@@ -65,7 +64,7 @@
 
             if (player.Glimmer < price)
             {
-                Console.WriteLine($"Too little Glimmer! You only have {player.Glimmer}.\n");
+                Console.WriteLine($"Not enough Glimmer! You only have {player.Glimmer}.\n");
                 Console.WriteLine("Press any key to continue your journey...");
                 Console.ReadKey();
                 noHeal = true;
